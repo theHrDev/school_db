@@ -7,7 +7,7 @@ class Students:
         id = random.randint(10**3,10**3+1)
         new_student = Student(id=id,name=name,dept=dept,age=age)
         s_id = new_student.id
-        self.students[s_id] = {"id":new_student.id, "name":new_student.name,"dept":new_student.dept,"age":new_student.age}
+        self.students[s_id] = {'id':new_student.id, 'name':new_student.name,'dept':new_student.dept,'age':new_student.age}
         return "Student added successfully"
     
     def delete_student(self):
@@ -36,8 +36,8 @@ class Student:
         
 def student_db():
     students = Students()
+    print("Welcome to student data")
     while True:
-        print("Welcome to student data")
         print("-------- 1.Add Student ----------")
         print("-------- 2.View All Student ----------")
         print("-------- 3.Exit ----------\n")
