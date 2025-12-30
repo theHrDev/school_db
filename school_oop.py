@@ -20,8 +20,11 @@ class Students:
         pass
     
     
-    def view_single_student(self):
-        pass
+    def view_single_student(self,id):
+        if id not in self.students:
+            return "No student with the provided id"
+        student_data = self.students[id]
+        return student_data
     
     
     def view_all_students(self):
