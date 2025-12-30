@@ -10,8 +10,11 @@ class Students:
         self.students[s_id] = {'id':new_student.id, 'name':new_student.name,'dept':new_student.dept,'age':new_student.age}
         return "Student added successfully"
     
-    def delete_student(self):
-        pass
+    def delete_student(self,id):
+        if id not in self.students:
+            return "No student with the provided id"
+        del self.students[id]
+        return "Student deleted successfully"
     
     def edit_student(self):
         pass
