@@ -16,8 +16,10 @@ class Students:
         del self.students[id]
         return "Student deleted successfully"
     
-    def edit_student(self):
-        pass
+    def edit_student(self,id):
+        if id not in self.students:
+            return "No student with the provided id"
+        
     
     
     def view_single_student(self,id):
