@@ -45,8 +45,11 @@ def student_db():
     print("Welcome to student data")
     while True:
         print("-------- 1.Add Student ----------")
-        print("-------- 2.View All Student ----------")
-        print("-------- 3.Exit ----------\n")
+        print("-------- 2.View single Student ----------")
+        print("-------- 3.Edit Student ----------")
+        print("-------- 4.Delete Student ----------")
+        print("-------- 5.View All Student ----------")
+        print("-------- 6.Exit ----------\n")
         menu = input("Enter menu: ")
         if menu == "1":
             name = input("Enter the student name: ")
@@ -54,8 +57,16 @@ def student_db():
             dept = input("Enter the student dept: ")
             print(students.add_student(name=name,age=age,dept=dept))
         elif menu == "2":
-            print(students.view_all_students())
+            id = int(input("Enter student id: "))
+            print(students.view_single_student(id=id))
         elif menu == "3":
+            pass
+        elif menu == "4":
+            id = int(input("Enter student id: "))
+            print(students.delete_student(id=id))
+        elif menu == "5":
+            print(students.view_all_students())
+        elif menu == "6":
             break
         else:
             print("Invalid input")
