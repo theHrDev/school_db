@@ -4,10 +4,10 @@ class Students:
         self.students = {}
     
     def add_student(self,name,dept,age):
-        id = random.randint(10**3,10**3+1)
+        id = random.randint(1000,9999)
         new_student = Student(id=id,name=name,dept=dept,age=age)
         s_id = new_student.id
-        self.students[s_id] = {'id':new_student.id, 'name':new_student.name,'dept':new_student.dept,'age':new_student.age}
+        self.students[s_id] = new_student
         return "Student added successfully"
     
     def delete_student(self,id):
@@ -16,23 +16,28 @@ class Students:
         del self.students[id]
         return "Student deleted successfully"
     
-    def edit_student(self,id):
+    def edit_student(self,id , new_name):
         if id not in self.students:
             return "No student with the provided id"
+        self.students[id].name = new_name
+        return "name edited successfully"
         
     
     
     def view_single_student(self,id):
         if id not in self.students:
             return "No student with the provided id"
-        student_data = self.students[id]
-        return student_data
+        s = self.students[id]
+        return f"ID: {s.id} | Name: {s.name} | Dept: {s.dept} | Age: {s.age}"
     
     
     def view_all_students(self):
         if not self.students:
             return "No student found"
-        return self.students
+        result = []
+        for s in self.students.values():
+            result.append(f"ID: {s.id} | Name: {s.name} | Dept: {s.dept} | Age: {s.age}")
+        return "\n".join(result)
     
 class Student:
     def __init__(self,name,dept,age,id):
@@ -40,6 +45,9 @@ class Student:
         self.dept = dept
         self.age = age
         self.id = id
+        
+
+        
         
         
 def student_db():
@@ -62,7 +70,10 @@ def student_db():
             id = int(input("Enter student id: "))
             print(students.view_single_student(id=id))
         elif menu == "3":
-            pass
+            id = int(input("Enter student id: "))
+            new_name = input("Enter new name: ")
+            print(students.edit_student(id=id, new_name=new_name))
+
         elif menu == "4":
             id = int(input("Enter student id: "))
             print(students.delete_student(id=id))
