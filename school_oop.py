@@ -46,7 +46,9 @@ class Student:
         self.age = age
         self.id = id
         
-
+class Course:
+    def __init__(self,id,name,enrolled_students):
+        pass
         
         
         
@@ -63,7 +65,7 @@ def student_db():
         menu = input("Enter menu: ")
         if menu == "1":
             name = input("Enter the student name: ")
-            age = input("Enter the student age: ")
+            age = int(input("Enter the student age: "))
             dept = input("Enter the student dept: ")
             print(students.add_student(name=name,age=age,dept=dept))
         elif menu == "2":
