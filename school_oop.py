@@ -57,7 +57,7 @@ class Students:
 class Courses:
     def __init__(self):
         pass
-    def enroll_student(self):
+    def enroll_student(self,s_id,c_id):
         pass   
         
         
