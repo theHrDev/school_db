@@ -1,4 +1,19 @@
 import random
+class Student:
+    def __init__(self,name,dept,age,id):
+        self.name = name
+        self.dept = dept
+        self.age = age
+        self.id = id
+        enrolled_courses = []
+        
+class Course:
+    def __init__(self,id,name):
+        self.id = id
+        self.name = name
+        self.enrolled_students = []
+        
+        
 class Students:
     def __init__(self):
         self.students = {}
@@ -39,16 +54,11 @@ class Students:
             result.append(f"ID: {s.id} | Name: {s.name} | Dept: {s.dept} | Age: {s.age}")
         return "\n".join(result)
     
-class Student:
-    def __init__(self,name,dept,age,id):
-        self.name = name
-        self.dept = dept
-        self.age = age
-        self.id = id
-        
-class Course:
-    def __init__(self,id,name,enrolled_students):
+class Courses:
+    def __init__(self):
         pass
+    def enroll_student(self):
+        pass   
         
         
         
