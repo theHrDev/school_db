@@ -5,7 +5,7 @@ class Student:
         self.dept = dept
         self.age = age
         self.id = id
-        enrolled_courses = []
+        self.enrolled_courses = []
         
 class Course:
     def __init__(self,id,name):
@@ -57,8 +57,16 @@ class Students:
 class Courses:
     def __init__(self):
         pass
-    def enroll_student(self,s_id,c_id):
+    def enroll_student(self,student_id,course_id):
         pass   
+    def view_single_course(self,course_id):
+        pass
+    def edit_course(self,course_id,title):
+        pass
+    def delete_course(self,course_id):
+        pass
+    def view_all_courses(self):
+        pass
         
         
         
