@@ -65,9 +65,6 @@ class Courses:
         new_course = Course(id=course_id,name=name)
         self.courses[course_id] = new_course
         return "course added successfully"
-        
-    def enroll_student(self,student_id,course_id):
-        pass   
     def view_single_course(self,course_id):
         pass
     def edit_course(self,course_id,title):
@@ -76,7 +73,19 @@ class Courses:
         pass
     def view_all_courses(self):
         pass
-        
+
+
+class EnrollmentController(Students,Courses):
+    def __init__(self):
+        super().__init__()
+    def enroll_student(self,student_id,course_id):
+        pass
+    def drop_student(self,student_id,course_id):
+        pass
+    def list_student_courses(self,student_id):
+        pass
+    def list_course_students(self,course_id):
+        pass
         
         
 def student_db():
