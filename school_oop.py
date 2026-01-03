@@ -11,7 +11,7 @@ class Course:
     def __init__(self,id,name):
         self.id = id
         self.name = name
-        self.enrolled_students = []
+        self.enrolled_students = {}
         
         
 class Students:
@@ -37,14 +37,11 @@ class Students:
         self.students[id].name = new_name
         return "name edited successfully"
         
-    
-    
     def view_single_student(self,id):
         if id not in self.students:
             return "No student with the provided id"
         s = self.students[id]
         return f"ID: {s.id} | Name: {s.name} | Dept: {s.dept} | Age: {s.age}"
-    
     
     def view_all_students(self):
         if not self.students:
@@ -56,7 +53,19 @@ class Students:
     
 class Courses:
     def __init__(self):
-        pass
+        self.courses = {}
+        
+    def generate_course_id():
+        id = random.randint(10*5, 10*6-1)
+        formated_id = f'course{id}'
+        return formated_id
+    
+    def create_course(self,name):
+        course_id = self.generate_course_id()
+        new_course = Course(id=course_id,name=name)
+        self.courses[course_id] = new_course
+        return "course added successfully"
+        
     def enroll_student(self,student_id,course_id):
         pass   
     def view_single_course(self,course_id):
