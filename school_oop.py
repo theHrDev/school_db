@@ -13,7 +13,7 @@ class Course:
         self.name = name
         self.enrolled_students = {}
         
-        
+# STUDENTS CLASS
 class Students:
     def __init__(self):
         self.students = {}
@@ -51,6 +51,7 @@ class Students:
             result.append(f"ID: {s.id} | Name: {s.name} | Dept: {s.dept} | Age: {s.age}")
         return "\n".join(result)
     
+# COURSES CLASS
 class Courses:
     def __init__(self):
         self.courses = {}
@@ -65,14 +66,32 @@ class Courses:
         new_course = Course(id=course_id,name=name)
         self.courses[course_id] = new_course
         return "course added successfully"
+    
     def view_single_course(self,course_id):
-        pass
+        if course_id not in self.courses:
+            return "no course found"
+        course = self.courses[course_id]
+        return f"ID: {course.id} name : {course.name} enrolled_student: {course.enrolled_students}"
+    
     def edit_course(self,course_id,title):
-        pass
+        if course_id not in self.courses:
+            return "no course found"
+        self.courses[course_id].name = title
+        return "course title edited successfully"
+    
     def delete_course(self,course_id):
-        pass
+        if course_id not in self.courses:
+            return "no course found"
+        del self.courses[course_id]
+        return "course deleted successfully"
+    
     def view_all_courses(self):
-        pass
+        if not self.courses:
+            return "no courses found"
+        results = []
+        for course in self.courses.values():
+            results.append(f"course_id: {course.id} title: {course.name} enrolled_students : {course.enrolled_students}")
+            return "\n".join(results)
 
 
 class EnrollmentController(Students,Courses):
@@ -88,7 +107,7 @@ class EnrollmentController(Students,Courses):
         pass
         
         
-def student_db():
+def student_management():
     students = Students()
     print("Welcome to student data")
     while True:
@@ -122,4 +141,4 @@ def student_db():
         else:
             print("Invalid input")
     
-student_db()
+student_management()
