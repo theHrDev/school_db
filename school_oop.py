@@ -11,7 +11,17 @@ class Course:
     def __init__(self,id,name):
         self.id = id
         self.name = name
-        self.enrolled_students = {}
+        self.enrolled_students = []
+
+# class EnrolledCourses:
+#     def __init__(self,id,name):
+#         self.id = id
+#         self.name = name
+        
+# class EnrolledStudents:
+#     def __init__(self,id,name):
+#         self.id = id
+#         self.name = name
         
 # STUDENTS CLASS
 class Students:
@@ -94,11 +104,17 @@ class Courses:
             return "\n".join(results)
 
 
-class EnrollmentController(Students,Courses):
-    def __init__(self):
-        super().__init__()
+class EnrollmentController:
+    def __init__(self,students,courses):
+            self.students = students
+            self.courses = courses
+            
     def enroll_student(self,student_id,course_id):
-        pass
+        if student_id not in self.students or course_id not in self.courses:
+            return "Please enter valid id"
+        match_course = self.courses[course_id].enrolled_students
+        match_student = self.students[student_id].enrolled_courses
+         
     def drop_student(self,student_id,course_id):
         pass
     def list_student_courses(self,student_id):
