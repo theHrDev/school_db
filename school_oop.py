@@ -115,6 +115,7 @@ class EnrollmentController:
         student.enrolled_courses.append(course)
         course.enrolled_students.append(student)
         return f"enrollment successful"
+    
     def drop_student(self,student_id,course_id):
         if student_id not in self.students.students:
             return "Please enter valid student id"
@@ -129,6 +130,7 @@ class EnrollmentController:
         student.enrolled_courses.remove(course)
         
         return "student dropped from course"
+    
     def list_student_courses(self,student_id):
         if student_id not in self.students.students:
             return "Please enter valid student id"
@@ -136,6 +138,7 @@ class EnrollmentController:
         if not student.enrolled_courses:
             return "No courses enrolled"
         return "\n".join(f"{c.id} : {c.name}" for c in student.enrolled_courses)
+    
     def list_course_students(self,course_id):
         if course_id not in self.courses.courses:
             return "Invalid course id"
@@ -182,6 +185,8 @@ def student_menu(students):
 
         elif choice == "6":
             break
+        
+        
 def course_menu(courses):
     while True:
         print("\n--- Course Menu ---")
@@ -216,6 +221,8 @@ def course_menu(courses):
 
         elif choice == "6":
             break
+        
+        
 def enrollment_menu(enrollment):
     while True:
         print("\n--- Enrollment Menu ---")
